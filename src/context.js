@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 const GlobalContext = React.createContext()
 
-const GlobalProvider = ({ children }) => {
+export const GlobalProvider = ({ children }) => {
   // here define state and function to be passed to the app
 
   return (
@@ -21,8 +21,6 @@ const GlobalProvider = ({ children }) => {
 export const useGlobalContext = () => {
   return useContext(GlobalContext)
 }
-
-export { GlobalContext, GlobalProvider }
 
 // Dont forget to wrap the App with the Provider
 // <AppProvider>

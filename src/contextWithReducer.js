@@ -7,7 +7,7 @@ const initialState = {
 
 const GlobalContext = React.createContext()
 
-const GlobalProvider = ({ children }) => {
+export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
@@ -26,8 +26,6 @@ const GlobalProvider = ({ children }) => {
 export const useGlobalContext = () => {
   return useContext(GlobalContext)
 }
-
-export { GlobalContext, GlobalProvider }
 
 // Dont forget to wrap the App with the Provider
 // <GlobalProvider>
