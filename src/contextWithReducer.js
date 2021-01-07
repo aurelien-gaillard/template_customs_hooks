@@ -1,16 +1,21 @@
-import React, { useContext } from 'react'
+import React, { useContext, useReducer } from 'react'
+import reducer from '../reducers/global_reducer'
+
+const initialState = {
+  // define the state and default value
+}
+
 const GlobalContext = React.createContext()
 
 const GlobalProvider = ({ children }) => {
-  // here define state and function to be passed to the app
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
     <GlobalContext.Provider
-      value={
-        {
-          // Here pass the state and functions to be used
-        }
-      }
+      value={{
+        ...state,
+        // Here pass the functions to be used
+      }}
     >
       {children}
     </GlobalContext.Provider>
@@ -25,6 +30,6 @@ export const useGlobalContext = () => {
 export { GlobalContext, GlobalProvider }
 
 // Dont forget to wrap the App with the Provider
-// <AppProvider>
+// <GlobalProvider>
 //   <App />
-// </AppProvider>
+// </GlobalProvider>
